@@ -1,0 +1,16 @@
+<h1> PWA Dealer Services </h1>
+<br /><br />
+<body>
+    <%  @services.each do |service|%>
+   <h4> Service: <%= service.name %> </h4> 
+    <br /><br />
+    Description: <%= service.description %>
+    <br /><br />
+    Price: <%= service.price %>
+    <br /><br />
+    Time: <%= service.time %>
+    <% service_link = "/dealerservices/#{service.id}" %>
+    <p><a href="<%= service_link %>"><%= service.name %></a></p>
+    <br /><br />
+    <% end %>
+</body>

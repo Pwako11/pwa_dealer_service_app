@@ -8,7 +8,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :welcome
+    redirect '/dealerservices' 
   end
 
 end
