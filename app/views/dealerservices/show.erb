@@ -5,5 +5,7 @@
     <p>Service Price:<%= @service.price %></p>
     <p>Service Time:<%= @service.time %></p>
 
+    <p><a href="/dealerservices/<%= @service.id %>/new">add to cart</a> </p>
     <% service_link = "/dealerservices" %>
+    
     <p><a href="<%= service_link %>">Return to Main Page</a></p>

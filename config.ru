@@ -4,6 +4,8 @@ require './config/environment'
 #   raise 'Migrations are pending. Run `rake db:migrate` to resolve the issue.'
 # end
 
+use Rack::MethodOverride
+use User_itemsController 
 use UsersController
-use DealerServiceController
+use DealerServicesController
 run ApplicationController

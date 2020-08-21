@@ -14,10 +14,11 @@ class UsersController < ApplicationController
             redirect to '/users/failure'
           end 
          
-          @user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
+          user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
          
           if user.save
-            redirect '/users/login'
+            session[:user_id] = user.id
+            redirect '/users/account'
           else
             redirect '/users/failure'
           end

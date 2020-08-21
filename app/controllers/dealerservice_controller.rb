@@ -1,4 +1,4 @@
-class DealerServiceController < ApplicationController 
+class DealerServicesController < ApplicationController 
 
       
     get '/dealerservices' do
@@ -9,5 +9,10 @@ class DealerServiceController < ApplicationController
     get '/dealerservices/:id' do
         @service = DealerService.find_by_id(params[:id])
         erb :'dealerservices/show'
-    end 
+    end
+    
+    get '/dealerservices/:id/new' do
+        @service = params
+        erb :'dealerservices/new' 
+    end    
   end
