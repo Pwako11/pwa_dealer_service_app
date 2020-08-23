@@ -2,7 +2,7 @@ class DealerServicesController < ApplicationController
 
       
     get '/dealerservices' do
-      @services = DealerService.all
+     @services = DealerService.all
       erb :'dealerservices/index'
     end
   
@@ -12,7 +12,13 @@ class DealerServicesController < ApplicationController
     end
     
     get '/dealerservices/:id/new' do
+
+        if !!logged_in?
         @service = params
         erb :'dealerservices/new' 
+
+        else
+            redirect '/users/login'
+        end 
     end    
   end

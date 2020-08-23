@@ -1,0 +1,8 @@
+<h2> You can edit you service appointment details here</h2>
+
+<form action="/user_items/<%= @newitem.id %>" method="POST">
+  <input type="hidden" name="_method" value= "patch">
+  Update your special request: <input type="text" name="comment" value= "<%= @newitem.comment %>" >
+  Update your scheduled time: <input type="time" name="time" value= "<%= @newitem.time %>">
+  <input type="submit" value="submit">
+</form>

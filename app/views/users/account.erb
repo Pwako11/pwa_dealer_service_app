@@ -1,5 +1,7 @@
 <h2>Welcome to PWA Dealership Service Center </h1>
 
-<p>Welcome <%= current_user.username %>. Currently have XXX of service requests with us. Click here to view our sevices</p>
+<p>Welcome <%= current_user.username %>. You currently have <a href="/user_items"><%= UserItem.count %></a> service requests with us. Click <a href="/dealerservices"> here to view our sevices </p>
+ 
+<p>To review your service request summary <a href="/user_items"> click here</p> 
 
 <p><a href="/logout">Log out</a></p>

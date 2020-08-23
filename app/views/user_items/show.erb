@@ -1,0 +1,23 @@
+<h1> PWA Dealer Services </h1>
+<br /><br />
+<body>
+    <h4>Here is your order for review </h4>
+    <br /><br />
+    <p>Selected service: <%= @dealeritem.name %> </p>
+    <p>Service price: <%= @dealeritem.price %> </p>
+    <p>Preferred time: <%= @newitem.time %> </p>
+    <p>Special requests: <%= @newitem.comment %> </p>
+    
+       <li> <p><a href="/user_items/<%= @newitem.id %>/edit">edit</a> </p>
+
+        <form action="/user_items/<%= @newitem.id %>" method="POST">
+            <input type="hidden" name="_method" value= "delete">
+            <input type="submit" value="Delete">
+        </form>
+        </li>
+        <br /><br />
+
+        <p>To review your service request summary <a href="/user_items"> click here</p> 
+        <p><a href="/dealerservices">Continue shopping</a></p>
+        
+</body>

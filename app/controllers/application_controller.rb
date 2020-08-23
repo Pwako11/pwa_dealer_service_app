@@ -13,7 +13,7 @@ class ApplicationController < Sinatra::Base
     redirect '/dealerservices' 
   end
 
-
+  
 #   get '/' do
 #     redirect '/user/account' if logged_in?
 

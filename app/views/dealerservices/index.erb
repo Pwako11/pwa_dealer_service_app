@@ -1,6 +1,21 @@
-<h1> PWA Dealer Services </h1>
+<h1> Welcome to PWA Dealership Services </h1>
 <br /><br />
 <body>
+
+<p> At PWA Dealer Services of Washington, our highly qualified technicians are here to provide exceptional service in a timely manner. From oil changes to transmission replacements, we are dedicated to maintaining top tier customer service, for both new and pre-owned car buyers! Allow our staff to demonstrate our commitment to excellence.</p>
+
+<h4>Location:</h4>
+<p>4800 Wisconsin Ave NW 
+Washington, DC 20016 </p>
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3102.7710085376402!2d-77.08370804905262!3d38.95205945122498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7c9ead224b497%3A0x549d1f30349191b3!2s4800%20Wisconsin%20Ave%20NW%2C%20Washington%2C%20DC%2020016!5e0!3m2!1sen!2sus!4v1598195618836!5m2!1sen!2sus" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+<br /><br />
+
+<h4>Our Service Specials</h4>
+
+<br /><br />
+
     <%  @services.each do |service|%>
    <h4> Service: <%= service.name %> </h4> 
     <br /><br />
@@ -13,4 +28,7 @@
     <p><a href="<%= service_link %>"><%= service.name %></a></p>
     <br /><br />
     <% end %>
+
+    <p><a href= "/user_items"> Click here to view services selected </a></p>
+
 </body>
