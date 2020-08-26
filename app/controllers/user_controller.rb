@@ -26,6 +26,15 @@ class UsersController < ApplicationController
 
     get '/users/account' do
         @user = User.find(session[:user_id])
+
+        @newitems = []
+        items =  UserItem.all
+
+            items.each do |item|
+                if item.user === current_user 
+                    @newitems << item 
+                end 
+              end 
         erb :'users/account'
     end
  

@@ -13,20 +13,6 @@ class ApplicationController < Sinatra::Base
     redirect '/dealerservices' 
   end
 
-  
-#   get '/' do
-#     redirect '/user/account' if logged_in?
-
-#     erb :'/welcome
-#   end
-
-#   get '/user/dashboard' do
-#     redirect?
-#     @user = User.find(session[:user_id])
-
-#     erb :dashboard
-#   end
-
   helpers do
     def logged_in?
       !!session[:user_id]

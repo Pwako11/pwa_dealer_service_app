@@ -1,20 +1,19 @@
 <h1> PWA Dealer Services </h1>
 <br /><br />
 <body>
-    <h4><%= current_user.username %>, you hare <%= UserItem.count %> items selected.  Here is assumary of services selected for your next visit.</h4>
+    <h4><%= current_user.username %>, you hare <%= @newitems.count %> items selected.  Here is assumary of services selected for your next visit.</h4>
     <br /><br />
 
-    <% @newitems.each do |item| %>
+    <% @newitems.each do |i| %>
+        
         <ol>
-            <li><%= @dealerservices[item[:dealer_services_id]].name %>
-            <strong>Special request:</strong> <%= item.comment %>
-            <%= @dealerservices[item[:dealer_services_id]].price%> 
+            <li><%= @dealerservices[(i[:dealer_services_id] -1)].name %>
+            <strong>Special request:</strong> <%= i.comment %>
+            <%= @dealerservices[(i[:dealer_services_id] -1 )].price %> 
             
-
-            <p><a href="/user_items/<%= item.id %>/edit">edit</a> </p>
+            <p><a href="/user_items/<%= i.id %>/edit">edit</a> </p>
             
-
-            <form action="/user_items/<%= item.id %>" method="POST">
+            <form action="/user_items/<%= i.id %>" method="POST">
                 <input type="hidden" name="_method" value= "delete">
                 <input type="submit" value="Delete">
 

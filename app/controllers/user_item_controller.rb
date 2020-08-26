@@ -2,13 +2,19 @@ class User_itemsController < ApplicationController
 
     
      get '/user_items' do 
-       
+       @newitems = []
         if !!logged_in?
-            
+            items =  UserItem.all
+
+            items.each do |item|
+                if item.user === current_user 
+                    @newitems << item 
+                end 
+            end 
+                
             @dealerservices = DealerService.all 
-            @newitems = UserItem.all 
+             erb :'user_items/index'
             
-            erb :'user_items/index'
         else
             redirect '/users/login'
         end 
@@ -57,8 +63,8 @@ class User_itemsController < ApplicationController
         
         if @newitem.user === current_user
             @dealeritem = DealerService.find_by_id(@newitem[:dealer_services_id])
-            @newitem.delete
+            @newitem.destroy
         end 
-        redirect '/dealerservices' 
+        redirect '/user_items' 
     end 
 end 
