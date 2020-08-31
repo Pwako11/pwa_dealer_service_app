@@ -1,5 +1,9 @@
 <h2>User Login </h2>
 
+<% if flash[:error] %>
+  <p class="error"><%= flash[:error] %></p>
+<% end %>
+
 <p>Please login  to your PWA user ccount make or update your service reservations </p>
 
 <form action="/login" method="POST">

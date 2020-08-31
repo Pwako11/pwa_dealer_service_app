@@ -7,6 +7,7 @@ class DealerServicesController < ApplicationController
     end
   
     get '/dealerservices/:id' do
+            
         @service = DealerService.find_by_id(params[:id])
         erb :'dealerservices/show'
     end
@@ -21,4 +22,9 @@ class DealerServicesController < ApplicationController
             redirect '/users/login'
         end 
     end    
+
+    get '/dealerservices/failure' do 
+        erb :'dealerservices/failure'
+    end
+
   end

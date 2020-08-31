@@ -26,34 +26,53 @@ class User_itemsController < ApplicationController
     end
     
     post '/user_items' do 
-        
         @newitem = UserItem.create(:user_id => current_user.id, :dealer_services_id => params["dealer_services_id"].to_i, :comment => params["comment"], :time => params["time"])
-        
         @dealeritem  =  DealerService.find_by_id(@newitem.dealer_services_id)
+
+        if params[:comment].empty? || params[:time].empty?
+            flash[:error] = "Comment and Time field require an entry. Please provide your comment and enter a preferred time for your service"
+            id = params["dealer_services_id"].to_i
+            rerendor = "/dealerservices/#{(id)}/new"
+            redirect rerendor
+        end 
+        erb :'user_items/show' 
+    end 
+
+    get '/user_items/edit' do
         
-        erb :'user_items/show'
+        if params[:comment].empty? || params[:time].empty?
+            flash[:error] = "Comment and Time field require an entry. Please provide your comment and enter a preferred time for your service"
+            erb :'user_items/edit'
+        end 
+        
+        erb :'user_items/edit'
     end 
 
     get '/user_items/:id/edit' do
         
         @newitem = UserItem.find_by_id(params[:id])
         erb :'user_items/edit'
-    end 
+        end 
 
     patch '/user_items/:id' do
         
         @newitem = UserItem.find_by_id(params[:id])
         @dealeritem = DealerService.find_by_id(@newitem[:dealer_services_id])
-        
+
+        if params[:comment].empty? || params[:time].empty?
+            flash[:error] = "Comment and Time field require an entry. Please provide your comment and enter a preferred time for your service"
+            erb :'user_items/edit'
+        end 
+            
         if @newitem.user === current_user
             if @newitem.update(:comment => params[:comment], :time => params[:time])
-                erb :'user_items/show'       
+                redirect '/user_items'       
             else
                 erb :'user_items/edit'
             end 
         else
-            redirect '/user_items' 
-        end 
+            redirect '/users/login' 
+        end     
         
     end
 

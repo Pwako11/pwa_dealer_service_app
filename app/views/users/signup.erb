@@ -1,4 +1,8 @@
 <h2>PWA New User Sign Up</h2>
+<% if @error %>
+  <p class="error"> <%= @error %></p>
+<% end %>
+
 <br /><br />
 <form action="/signup" method="POST">
   Username: <input type="text" name="username" placeholder="Enter a username:">

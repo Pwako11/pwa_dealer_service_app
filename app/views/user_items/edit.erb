@@ -1,5 +1,9 @@
 <h2> You can edit you service appointment details here</h2>
 
+<% if flash[:error] %>
+  <p class="error"><%= flash[:error] %></p>
+<% end  %>
+
 <form action="/user_items/<%= @newitem.id %>" method="POST">
   <input type="hidden" name="_method" value= "patch">
   Update your special request: <input type="text" name="comment" value= "<%= @newitem.comment %>" >

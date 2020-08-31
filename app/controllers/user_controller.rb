@@ -6,12 +6,9 @@ class UsersController < ApplicationController
 
     post '/signup' do 
         
-        if params[:username].empty?
-            redirect to '/users/failure'
-          eslif  params[:email].empty? 
-            redirect to '/users/failure'
-          elsif params[:password].empty?
-            redirect to '/users/failure'
+        if params[:username].empty? || params[:email].empty? || params[:password].empty?
+          @error = "All fields must be completed"
+          erb :'users/signup'
           end 
          
           user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
@@ -20,7 +17,7 @@ class UsersController < ApplicationController
             session[:user_id] = user.id
             redirect '/users/account'
           else
-            redirect '/users/failure'
+            erb :'users/signup'
           end
     end 
 
@@ -49,12 +46,9 @@ class UsersController < ApplicationController
           session[:user_id] = @user.id
           redirect to '/users/account'
         else
-          redirect to '/users/failure'
+          flash[:error] = "Invalid credentials. Try again"
+          redirect '/users/login'
         end
-    end
-
-    get '/users/failure' do
-        erb :'users/failure'
     end
 
     get "/logout" do

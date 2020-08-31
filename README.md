@@ -40,6 +40,3 @@ The add to cart option will request the user to enter special requests and a pre
 
 
 Finally the user can review all their service selections, in summary form on their User homepage. At this point the user can edit an entry, delete an entry, return to shop or logout of the app.
-
-
-
