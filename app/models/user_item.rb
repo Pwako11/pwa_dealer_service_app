@@ -1,6 +1,6 @@
 class UserItem < ActiveRecord::Base
     belongs_to :user 
-    belongs_to :dealer_services 
+    belongs_to :dealer_service 
 
     validates :comment, presence: true
     validates :time, presence: true

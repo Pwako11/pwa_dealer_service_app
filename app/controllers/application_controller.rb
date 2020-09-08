@@ -15,6 +15,15 @@ class ApplicationController < Sinatra::Base
   end
 
   helpers do
+
+    def lookup_item
+      @newitem = UserItem.find_by_id(params[:id])
+    end 
+
+    def completed?
+      params[:comment].empty? || params[:time].empty?
+    end 
+
     def logged_in?
       !!current_user
     end

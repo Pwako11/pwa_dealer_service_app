@@ -3,7 +3,7 @@ The PWA Dealer app is built for the PWA Dealership that officer after sales vehi
 
 Installation
 Ruby
-https//https://github.com/Pwako11/pwa_dealer_service_app
+https://github.com/Pwako11/pwa_dealer_service_app
 The application confirms to RESTful routes to create, show, edit, and delete items from the
 database
 Usage

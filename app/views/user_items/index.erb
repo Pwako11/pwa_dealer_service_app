@@ -5,11 +5,11 @@
     <br /><br />
 
     <% @newitems.each do |i| %>
-        
+    
         <ol>
-            <li><%= @dealerservices[(i[:dealer_services_id] -1)].name %>
+            <li><%= DealerService.find_by_id(i.dealer_services_id).name %>
             <strong>Special request:</strong> <%= i.comment %>
-            <%= @dealerservices[(i[:dealer_services_id] -1 )].price %> 
+            <%= DealerService.find_by_id(i.dealer_services_id).price %> 
             
             <p><a href="/user_items/<%= i.id %>/edit">edit</a> </p>
             
