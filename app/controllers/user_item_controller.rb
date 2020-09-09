@@ -5,6 +5,7 @@ class User_itemsController < ApplicationController
         if logged_in?
             @newitems = []
             @newitems = current_user.user_items  
+            
             erb :'user_items/index'   
         else
             redirect '/users/login'
@@ -27,15 +28,15 @@ class User_itemsController < ApplicationController
     end
     
     post '/user_items' do 
-       
-        if @newitem = UserItem.create(:user_id => current_user.id, :dealer_service_id => params["dealer_service_id"].to_i, :comment => params["comment"], :time => params["time"])
+        @newitem = UserItem.new(:user_id => current_user.id, :dealer_service_id => params["dealer_service_id"].to_i, :comment => params["comment"], :time => params["time"])
+        if @newitem.save
             redirect "/user_items/#{@newitem.id}"   
-                      
+                   
         else 
             flash[:error] = "Comment and Time field require an entry. Please provide your comment and enter a preferred time for your service"
             id = params["dealer_service_id"].to_i
-            rerendor = "/dealerservices/#{(id)}/new"
-            redirect rerendor
+            redirect "/user_items/new/#{(id)}"
+
         end 
     end   
 

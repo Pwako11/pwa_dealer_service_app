@@ -5,13 +5,13 @@ class UsersController < ApplicationController
   end 
 
   post '/signup' do 
-    if  user = User.create(:username => params[:username], :email => params[:email], :password => params[:password])
-      
+    user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
+    if  user.save
       session[:user_id] = user.id
       redirect '/users/account'
     else
       flash[:error] = "All fields must be completed"
-      erb :'users/signup'
+      redirect '/signup'
     end      
   end 
 
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
       erb :'users/account'
     end
  
-  get '/users/login' do 
+  get '/login' do 
     erb :'users/login'
   end 
 
