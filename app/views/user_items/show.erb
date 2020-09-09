@@ -4,8 +4,8 @@
     <h4>Here is your order for review </h4>
     <br /><br />
     
-    <p>Selected service: <%= DealerService.find_by_id(@newitem.dealer_services_id).name %> </p>
-    <p>Service price: <%= DealerService.find_by_id(@newitem.dealer_services_id).price %> </p>
+    <p>Selected service: <%= @newitem.dealer_service.name %> </p>
+    <p>Service price: <%= @newitem.dealer_service.price %> </p>
     <p>Preferred time: <%= @newitem.time %> </p>
     <p>Special requests: <%= @newitem.comment %> </p>
     

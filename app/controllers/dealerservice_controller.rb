@@ -11,18 +11,4 @@ class DealerServicesController < ApplicationController
         erb :'dealerservices/show'
     end
     
-    get '/dealerservices/:id/new' do
-
-        if logged_in?
-         @service = params
-        erb :'dealerservices/new' 
-        else
-            redirect '/users/login'
-        end 
-    end    
-
-    get '/dealerservices/failure' do 
-        erb :'dealerservices/failure'
-    end
-
   end

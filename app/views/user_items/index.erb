@@ -5,17 +5,18 @@
     <br /><br />
 
     <% @newitems.each do |i| %>
-    
+       
         <ol>
-            <li><%= DealerService.find_by_id(i.dealer_services_id).name %>
-            <strong>Special request:</strong> <%= i.comment %>
-            <%= DealerService.find_by_id(i.dealer_services_id).price %> 
+            <li>
+                <%= i.dealer_service.name %>
+                <strong>Special request:</strong> <%= i.comment %>
+                <%= i.dealer_service.price %> 
             
-            <p><a href="/user_items/<%= i.id %>/edit">edit</a> </p>
+                <p><a href="/user_items/<%= i.id %>/edit">edit</a> </p>
             
-            <form action="/user_items/<%= i.id %>" method="POST">
-                <input type="hidden" name="_method" value= "delete">
-                <input type="submit" value="Delete">
+                <form action="/user_items/<%= i.id %>" method="POST">
+                    <input type="hidden" name="_method" value= "delete">
+                    <input type="submit" value="Delete">
 
             </li>
         </ol>

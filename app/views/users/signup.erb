@@ -1,7 +1,7 @@
 <h2>PWA New User Sign Up</h2>
-<% if @error %>
-  <p class="error"> <%= @error %></p>
-<% end %>
+<% if flash[:error] %>
+  <p class="error"><%= flash[:error] %></p>
+<% end  %>
 
 <br /><br />
 <form action="/signup" method="POST">
